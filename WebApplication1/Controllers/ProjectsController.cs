@@ -46,7 +46,13 @@ namespace WebApplication1.Controllers
                 GitHubUrl = "github.com/project4",
                 Datum = new DateTime(2026, 10, 28)
             }
-        };    
+        };
+
+        [HttpGet]
+        public ActionResult<List<Project>> GetProjects()
+        {
+            return Ok(projects);
+        }
     }    
 }
   
