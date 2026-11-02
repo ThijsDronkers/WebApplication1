@@ -53,6 +53,17 @@ namespace WebApplication1.Controllers
         {
             return Ok(projects);
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Project> GetProjectById(int id)
+        {
+            Project? project = projects.FirstOrDefault(p => p.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return Ok(project);
+        }
     }    
 }
   
