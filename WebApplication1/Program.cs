@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -18,6 +19,7 @@ namespace WebApplication1
             builder.Services.AddOpenApi();
             builder.Services.AddDbContext<PortfolioDBContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IProjectService, ProjectService>();
 
             var app = builder.Build();
 
